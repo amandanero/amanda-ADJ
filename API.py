@@ -96,6 +96,19 @@ lst=[]
 for item in data['results']['votes']:
     lst.append(item['date'])
     lst.append(item['question'])
+    lst.append(item['result'])
+    lst.append('.'.join(item['description'].split(',')))
+    lst.append(item['total']['no'])
+    lst.append(item['total']['yes'])
+    lst.append(item['total']['present'])
+    lst.append(item['total']['not_voting'])
+    st.append('\n')
+        lst=','.join(lst)
+        output.write(lst)
+        lst=[]
+
+    output.close()
+
     # Process each result from the input data (stored in the variable called "data") and
     # store just the relevant information in a list. Append that list to the output list.
 
