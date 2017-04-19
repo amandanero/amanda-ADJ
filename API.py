@@ -118,8 +118,6 @@ def format_nomination_votes(data):
 
     return output
 
-
-
 ########## YOU CAN IGNORE THIS ##########
 
 if __name__ == '__main__':
