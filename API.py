@@ -32,7 +32,7 @@ def get_votes_by_date(chamber, start_date, end_date):
     # Define the proper URL here. It should use the chamber, start_date and end_date arguments
     # provided by the function.
 
-    url = "https://api.propublica.org/congress/v1/%7Bchamber%7D/votes/%7Bstart_date%7D/%7Bend_date%7D.json?date=2017-04-06"
+    url = "https://api.propublica.org/congress/v1/senate/votes/2017-04-06/2017-04-06.json"
 
     ###################
 
@@ -47,7 +47,7 @@ def get_votes_by_date(chamber, start_date, end_date):
 
     data = json.loads(response)
 
-    print data
+
 
     ###################
 
@@ -87,7 +87,15 @@ def format_nomination_votes(data):
     output = [['date', 'question', 'description', 'result', 'yes', 'no', 'present', 'not_voting']]
 
     ###################
-
+output=open('output.csv','w')
+for i in ['date', 'question', 'description', 'result', 'yes', 'no', 'present', 'not_voting']:
+output.write(i)
+output.write(',')
+output.write('\n')
+lst=[]
+for item in data['results']['votes']:
+    lst.append(item['date'])
+    lst.append(item['question'])
     # Process each result from the input data (stored in the variable called "data") and
     # store just the relevant information in a list. Append that list to the output list.
 
